@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>BukkitHTTP - 示例模块</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        form {
+            margin: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input[type="submit"] {
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>内容导航</h1>
+</header>
+<form action="./session/login" method="get">
+    <input type="submit" value="会话演示">
+</form>
+<form action="./db" method="get">
+    <input type="submit" value="数据库演示">
+</form>
+<form action="./files" method="get">
+    <input type="submit" value="静态文件演示">
+</form>
+<form>
+    <label>不要忘了查看Misc包！里面有几个没有在这里展示的功能。</label>
+</form>
+</body>
+</html>

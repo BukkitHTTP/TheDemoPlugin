@@ -1,12 +1,8 @@
-TheDemoPlugin
-==
-This is the demo plugin for BukkitHTTP. It is a simple plugin that allows you to router a request to a folder.  
-Features demonstrated in this plugin:
-- File serving
-- Configuration
-- Routing
-- Fallback
-
-PRs are NOT welcomed.  
-This plugin is for demonstration purposes only.  
-It needs to be kept simple and easy to understand, instead of being bug-free.
+The Demo Plugin
+---
+这是BukkitHTTP的演示插件。  
+它充当了BukkitHTTP的文档。  
+我们认为，相比起文档，示例代码和详实的注释更能帮助您理解BukkitHTTP的使用方法。  
+请从主类开始阅读。  
+通过访问运行了本插件的服务器并体验代码的效果也将对理解代码的功能十分有帮助。  
+本项目已完结，请放心使用。  
