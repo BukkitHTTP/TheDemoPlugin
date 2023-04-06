@@ -60,6 +60,8 @@ public class SessionHTML {
             "        <h2>登录:</h2>\n" +
             "        <label>用户: <input type=\"text\" name=\"username\" required></label><br>\n" +
             "        <label>密码: <input type=\"password\" name=\"password\" required></label><br>\n" +
+            "        <label>验证码: <input name=\"captcha\" required type=\"text\"></label><br>\n" +
+            "        <img alt=\"captcha\" src=\"/captcha.jpg\"><br>" +
             "        {msg}<br>\n" +
             "        <input type=\"submit\" value=\"确认\">\n" +
             "    </form>\n" +

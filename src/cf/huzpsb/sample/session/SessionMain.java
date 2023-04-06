@@ -4,6 +4,7 @@ import nano.http.d2.consts.Mime;
 import nano.http.d2.consts.Status;
 import nano.http.d2.core.Response;
 import nano.http.d2.serve.ServeProvider;
+import nano.http.d2.session.Captcha;
 import nano.http.d2.session.Session;
 import nano.http.d2.session.SessionManager;
 
@@ -38,6 +39,9 @@ public class SessionMain implements ServeProvider {
                                 case "4":
                                     reason = "请先登录!";
                                     break;
+                                case "5":
+                                    reason = "验证码不正确!";
+                                    break;
                                 default:
                                     reason = "未知错误!";
                                     break;
@@ -66,6 +70,12 @@ public class SessionMain implements ServeProvider {
                         }
 
                         // 不是登出，那就是在登录了
+                        // 校验验证码。这个是最简单的，因为校验方法接受null，所以不需要验证是否存在。
+                        if (!Captcha.validateCaptcha(session, parms.getProperty("captcha"))) {
+                            response = new Response(Status.HTTP_REDIRECT, Mime.MIME_PLAINTEXT, "Captcha Wrong");
+                            response.addHeader("Location", "./login?code=5");
+                            return response;
+                        }
                         String username = parms.getProperty("username");
                         String password = parms.getProperty("password");
                         if (username == null || password == null) {
