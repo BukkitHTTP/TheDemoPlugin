@@ -78,6 +78,7 @@ public class Main extends BukkitServerProvider {
 
     @Override
     public Response fallback(String uri, String method, Properties header, Properties parms, Properties files) {
+        Logger.info("DemoPlugin: Fallback: " + uri);
         Response r = new Response(Status.HTTP_REDIRECT, Mime.MIME_PLAINTEXT, "QWQ");
         r.addHeader("Location", preUri + "/#");
         return r;

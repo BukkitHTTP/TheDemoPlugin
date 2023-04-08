@@ -21,6 +21,6 @@ public class DemoConverter {
         // 既不影响正常使用，也可以实现向下兼容。
 
         DemoDbObj2 obj = db.query("小明");
-        System.out.println(NanoJSON.asJSON(obj));
+        System.out.println(new NanoJSON(obj));
     }
 }

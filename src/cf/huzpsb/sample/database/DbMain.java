@@ -57,7 +57,7 @@ public class DbMain implements ServeProvider {
                 if (!db.contains(id2)) {
                     return new Response(Status.HTTP_NOTFOUND, Mime.MIME_PLAINTEXT, "Not Found");
                 }
-                return new Response(Status.HTTP_OK, Mime.MIME_JSON, NanoJSON.asJSON(db.query(id2)));
+                return new Response(Status.HTTP_OK, Mime.MIME_JSON, new NanoJSON(db.query(id2)).toString());
             // 严格来说这里违反了线程安全：尽管上一步已经判断了id2是否存在，但是在这一步取值之前，数据库可能已经被修改了。
             // 不过无所谓，因为就算抛了NPE，也不会影响到数据库的正常使用，大不了InternalError掉一个请求。
             // 如果有控制台洁癖，可以给个空的try-catch。注明一下，怕有人误会。
