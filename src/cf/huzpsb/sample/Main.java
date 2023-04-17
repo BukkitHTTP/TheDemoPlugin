@@ -3,6 +3,7 @@ package cf.huzpsb.sample;
 import cf.huzpsb.sample.commands.CommandManager;
 import cf.huzpsb.sample.database.DbMain;
 import cf.huzpsb.sample.files.DemoFileServer;
+import cf.huzpsb.sample.misc.resouce.TEST;
 import cf.huzpsb.sample.session.SessionMain;
 import nano.http.bukkit.api.BukkitServerProvider;
 import nano.http.d2.console.Logger;
@@ -16,6 +17,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+// 如果你想直接在IDE中运行，请看看DevMain.java
 public class Main extends BukkitServerProvider {
     public static String preUri;
     public static File dir;
@@ -24,6 +26,9 @@ public class Main extends BukkitServerProvider {
 
     @Override
     public void onEnable(String name, File dir, String uri) {
+        TEST.test();
+        // 這個玩意主要是爲了測試資源文件的讀取。它不屬於這個模塊，一般來説只有我需要它。除非你想自定義加密算法，否則無視就好。
+
         Main.name = name;
         Main.dir = dir;
         Main.preUri = uri;
@@ -49,8 +54,8 @@ public class Main extends BukkitServerProvider {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Logger.info("DemoPlugin: " + pr.getProperty("message"));
-        // 这里是读取配置文件的演示。
+        Logger.info("DemoPlugin[中文]: " + pr.getProperty("message"));
+        // 这里是读取配置文件的演示。那个“中文”是为了演示中文支持。
 
         Logger.info("DemoPlugin: Module has been loaded");
         // 节约性能，Logger不会判断调用方是哪个模块，所以不加模块名可能会导致混乱
